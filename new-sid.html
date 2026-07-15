@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+
+    <!-- Primary Meta Tags -->
+<title>ПО SID — автоматическое оформление исполнительной документации</title>
+<meta name="title" content="ПО SID — автоматическое оформление исполнительной документации">
+<meta name="description" content="Предлагаем нестандартные условия программного метода формирования ИД под ключ">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ooo-sid.ru/">
+<meta property="og:title" content="ПО SID — автоматическое оформление исполнительной документации">
+<meta property="og:description" content="Предлагаем нестандартные условия программного метода формирования ИД под ключ">
+<meta property="og:image" content="img/openg.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://ooo-sid.ru/">
+<meta property="twitter:title" content="ПО SID — автоматическое оформление исполнительной документации">
+<meta property="twitter:description" content="Предлагаем нестандартные условия программного метода формирования ИД под ключ">
+<meta property="twitter:image" content="img/openg.png">
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+    ym(88148935, "init", {
+         clickmap:true,
+         trackLinks:true,
+         accurateTrackBounce:true,
+         webvisor:true
+    });
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/88148935" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ <!-- /Yandex.Metrika counter -->
+
+ 
+  <style>
+    :root {
+      --bg: #090f15;
+      --bg2: #111922;
+      --card: #ffffff;
+      --text: #101720;
+      --muted: #667085;
+      --line: #e6e8ec;
+      --gold: #ffc84d;
+      --gold2: #f2a91b;
+      --dark: #0e1720;
+      --dark-card: #121d27;
+      --radius: 22px;
+      --shadow: 0 22px 60px rgba(11, 19, 28, .14);
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.45;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 0;
+      border-radius: 12px;
+      padding: 16px 22px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: .2s;
+      font-size: 15px
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: #131313;
+      box-shadow: 0 14px 30px rgba(242, 169, 27, .25)
+    }
+
+    .btn.dark {
+      background: rgba(255, 255, 255, .06);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, .18)
+    }
+
+    .btn:hover {
+      transform: translateY(-2px)
+    }
+
+    .hero {
+      min-height: 760px;
+      background:
+        radial-gradient(circle at 72% 18%, rgba(255, 200, 77, .16), transparent 32%),
+        linear-gradient(120deg, rgba(9, 15, 21, .98), rgba(16, 25, 34, .98)),
+        #090f15;
+      color: #fff;
+      position: relative;
+      overflow: hidden
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .18;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .08) 1px, transparent 1px);
+      background-size: 62px 62px;
+      mask-image: linear-gradient(to bottom, #000 0%, transparent 92%);
+    }
+
+    .nav {
+      position: relative;
+      z-index: 2;
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, .08)
+    }
+
+    .logo {
+      font-size: 36px;
+      letter-spacing: .5px;
+      font-weight: 900
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      color: rgba(255, 255, 255, .82);
+      font-size: 14px;
+      font-weight: 700
+    }
+
+    .nav .btn {
+      padding: 13px 18px;
+      font-size: 14px
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 56px;
+      align-items: center;
+      padding: 80px 0 96px
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 20px
+    }
+
+    h1 {
+      font-size: 54px;
+      line-height: .97;
+      margin: 0 0 28px;
+      font-weight: 950;
+      letter-spacing: -2.2px
+    }
+
+    h1 span {
+      color: var(--gold)
+    }
+
+    .hero p {
+      font-size: 19px;
+      color: rgba(255, 255, 255, .76);
+      max-width: 580px;
+      margin: 0 0 34px
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 28px
+    }
+
+    .chips {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      color: rgba(255, 255, 255, .72);
+      font-size: 14px
+    }
+
+    .chip {
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .check {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 12px
+    }
+
+    .app {
+      background: #f6f7f9;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, .22);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .42);
+      overflow: hidden;
+      color: #1b2632;
+    }
+
+    .app__img {
+      display: block;
+      width: 100%;
+      object-fit: contain;
+    }
+
+    .app-top {
+      height: 46px;
+      background: #141d27;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px
+    }
+
+    .dots {
+      display: flex;
+      gap: 8px
+    }
+
+    .dots i {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #657283
+    }
+
+    .app-body {
+      display: grid;
+      grid-template-columns: 164px 1fr;
+      min-height: 440px
+    }
+
+    .sidebar {
+      background: #101922;
+      color: #aeb8c5;
+      padding: 18px 12px
+    }
+
+    .side-item {
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700
+    }
+
+    .side-item.active {
+      background: var(--gold);
+      color: #111
+    }
+
+    .dash {
+      padding: 22px
+    }
+
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 14px 0 20px
+    }
+
+    .kpi,
+    .panel {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 8px 22px rgba(16, 24, 40, .06)
+    }
+
+    .kpi b {
+      font-size: 28px;
+      display: block
+    }
+
+    .kpi small {
+      color: #22a06b;
+      font-weight: 700
+    }
+
+    .table {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      overflow: hidden
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1.1fr .8fr .7fr;
+      padding: 12px 16px;
+      border-bottom: 1px solid #edf0f2;
+      font-size: 13px
+    }
+
+    .row.head {
+      font-weight: 900;
+      color: #667085;
+      background: #fafafa
+    }
+
+    .row:last-child {
+      border-bottom: 0
+    }
+
+    section {
+      padding: 74px 0
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 38px;
+      line-height: 1.1;
+      margin: 0 0 38px;
+      font-weight: 950;
+      letter-spacing: -.8px
+    }
+
+    .muted {
+      color: var(--muted)
+    }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px
+    }
+
+    .pain-card,
+    .feature-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      min-height: 168px
+    }
+
+    .icon {
+      font-size: 44px;
+      margin-bottom: 18px;
+      display: block
+    }
+
+    .pain-card p {
+      margin: 0;
+      font-weight: 800;
+      text-align: center;
+      font-size: 15px
+    }
+
+    .flow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px
+    }
+
+    .module {
+      width: 136px;
+      height: 124px;
+      background: linear-gradient(180deg, #17222d, #0b1219);
+      border-radius: 18px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 16px 40px rgba(9, 15, 21, .22);
+      border: 1px solid rgba(255, 200, 77, .16)
+    }
+
+    .module .icon {
+      font-size: 34px;
+      margin: 0 0 10px;
+      color: var(--gold)
+    }
+
+    .module-icon {
+      max-width: 50%;
+      margin: 0 auto;
+
+      display: block;
+      border-radius: 10px;
+    }
+
+    .arrow {
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      flex: 1;
+      min-width: 18px;
+      opacity: .8
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px
+    }
+
+    .feature-card {
+      display: grid;
+      grid-template-columns: 82px 1fr;
+      gap: 18px;
+      align-items: center;
+      min-height: 190px
+    }
+
+    .num {
+      font-weight: 950;
+      color: var(--gold2);
+      font-size: 18px
+    }
+
+    .feature-card h3 {
+      font-size: 23px;
+      margin: 4px 0 8px
+    }
+
+    .audience {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px
+    }
+
+    .aud-card {
+      background: linear-gradient(180deg, #17222d, #0b1219);
+      color: #fff;
+      border-radius: 18px;
+      padding: 30px;
+      display: flex;
+      gap: 20px;
+      align-items: center
+    }
+
+    .aud-card .icon {
+      color: var(--gold);
+      margin: 0
+    }
+
+    .aud-icon {
+      display: block;
+      border-radius: 10px;
+    }
+
+    .calc {
+      background: #f7f8fa
+    }
+
+    .calc-box {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 26px
+    }
+
+    .field {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin: 12px 0
+    }
+
+    .field label {
+      font-weight: 800;
+      color: #344054
+    }
+
+    .fake-input {
+      height: 48px;
+      min-width: 220px;
+      border: 1px solid #d9dde4;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px;
+      color: #101828;
+      background: #fff;
+      font-weight: 700
+    }
+
+    .results {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px
+    }
+
+    .result {
+      background: linear-gradient(180deg, #17222d, #0b1219);
+      border-radius: 18px;
+      color: #fff;
+      padding: 24px;
+      min-height: 190px;
+      border: 1px solid rgba(255, 255, 255, .08)
+    }
+
+    .result.hot {
+      border-color: var(--gold);
+      box-shadow: 0 18px 44px rgba(242, 169, 27, .16)
+    }
+
+    .result b {
+      display: block;
+      font-size: 34px;
+      margin: 20px 0 4px
+    }
+
+    .result .gold {
+      color: var(--gold)
+    }
+
+    .videos {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px
+    }
+
+    .video-card {
+      font-size: 13px;
+      font-weight: 800;
+      text-align: center
+    }
+
+    .thumb {
+      aspect-ratio: 1.85;
+      background: linear-gradient(145deg, #f4f6f9, #fff);
+      border: 6px solid #101922;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 26px rgba(16, 24, 40, .16)
+    }
+
+    .play {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(17, 24, 39, .75);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .cta {
+      background: url(img/new-footer.png) no-repeat left -10% center/57%;
+      background-color: #091018;
+      color: #fff;
+      position: relative;
+      overflow: hidden
+    }
+
+    .cta:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .13;
+      background-image: linear-gradient(rgba(255, 255, 255, .12) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .12) 1px, transparent 1px);
+      background-size: 54px 54px
+    }
+
+    .cta-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 54px;
+      
+    }
+
+    .desk-art {
+      min-height: 410px;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .binder {
+      position: absolute;
+      left: 0;
+      width: 150px;
+      height: 48px;
+      border-radius: 10px;
+      background: #222d38;
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, .22);
+      display: flex;
+      align-items: center;
+      padding-left: 22px;
+      font-weight: 900
+    }
+
+    .binder:nth-child(1) {
+      top: 76px
+    }
+
+    .binder:nth-child(2) {
+      top: 130px
+    }
+
+    .binder:nth-child(3) {
+      top: 184px
+    }
+
+    .binder:nth-child(4) {
+      top: 238px
+    }
+
+    .binder:nth-child(5) {
+      top: 292px
+    }
+
+    .laptop {
+      position: absolute;
+      left: 165px;
+      top: 100px;
+      width: 360px;
+      height: 230px;
+      background: #eef1f5;
+      border: 12px solid #0f1720;
+      border-radius: 20px;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, .35);
+      padding: 18px
+    }
+
+    .screen-line {
+      height: 12px;
+      background: #cfd6df;
+      border-radius: 6px;
+      margin: 9px 0
+    }
+
+    .helmet {
+      position: absolute;
+      left: 380px;
+      top: 280px;
+      width: 150px;
+      height: 86px;
+      background: #fff;
+      border-radius: 80px 80px 22px 22px;
+      color: #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 950;
+      font-size: 24px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, .28)
+    }
+
+    .form {
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 22px;
+      padding: 28px;
+      backdrop-filter: blur(8px)
+    }
+
+    .form h2 {
+      font-size: 40px;
+      line-height: 1.1;
+      margin: 0 0 14px
+    }
+
+    .form h2 span {
+      color: var(--gold)
+    }
+
+    .form p {
+      color: rgba(255, 255, 255, .74)
+    }
+
+    .input {
+      width: 100%;
+      height: 50px;
+      border-radius: 10px;
+      border: 0;
+      margin: 8px 0 12px;
+      padding: 0 14px;
+      font-weight: 700
+    }
+
+    .contact-chips {
+      display: flex;
+      gap: 14px;
+      margin-top: 24px;
+      flex-wrap: wrap
+    }
+
+    .contact-chip {
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .14);
+      padding: 14px 18px;
+      border-radius: 14px
+    }
+
+    footer {
+      background: #080d12;
+      color: #cfd6df;
+      padding: 42px 0;
+      border-top: 1px solid rgba(255, 255, 255, .08)
+    }
+
+    .foot {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 28px
+    }
+
+    .foot .logo {
+      color: #fff
+    }
+
+    @media(max-width:980px) {
+      .nav-links {
+        display: none
+      }
+
+      .hero-grid,
+      .calc-box,
+      .cta-grid {
+        grid-template-columns: 1fr
+      }
+
+      .pain-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .features,
+      .audience {
+        grid-template-columns: 1fr
+      }
+
+      .videos {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      h1 {
+        font-size: 36px
+      }
+
+      .flow {
+        flex-wrap: wrap
+      }
+
+      .arrow {
+        display: none
+      }
+
+      .module {
+        width: calc(50% - 8px)
+      }
+
+      .cta {
+        background: url(img/new-footer.png) no-repeat center top / 90%;
+        background-color: #091018;
+      }
+
+      .cta-grid {
+        gap: 0;
+      }
+
+    }
+
+    @media screen and (max-width:767px) {
+      .section-title {
+        font-size: 24px;
+      }
+
+      .results {
+        grid-template-columns: 1fr;
+      }
+
+      .field {
+        flex-wrap: wrap;
+      }
+
+      .desk-art {
+        min-height: 100px;
+      }
+
+      .foot {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="container nav">
+      <div class="logo">SID</div>
+      <nav class="nav-links">
+        <a href="#features">Возможности</a>
+        <a href="#how">Как работает</a>
+        <!-- <a href="#calc">Экономия</a> -->
+        <a href="#video">Обучение</a>
+          <a href="#demo">Демо</a>
+          <a href="#contacts">Контакты</a>
+      </nav>
+      <a class="btn primary" href="#demo">Получить демо →</a>
+    </div>
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Программное обеспечение для ПТО</div>
+        <h1>ПО <span>SID</span> — автоматическое оформление исполнительной документации</h1>
+        <p>Программа помогает ПТО формировать акты, журналы, паспорта, ведомости и комплекты исполнительной документации
+          быстрее, аккуратнее и без ручного дублирования данных.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#demo">Получить демо-версию →</a>
+          <a class="btn dark" href="#how">Как работает</a>
+        </div>
+        <div class="chips"><span class="chip"><i class="check">✓</i>Меньше рутины</span><span class="chip"><i
+              class="check">✓</i>Меньше ошибок</span><span class="chip"><i class="check">✓</i>Больше времени на
+            стройку</span></div>
+      </div>
+      <div class="app" aria-label="Макет интерфейса программы SID">
+        <a href="img/promo1.webp" data-fancybox="">
+          <img src="img/promo1.webp" alt="изображение" width="100%" class="app__img">
+        </a>
+        <a href="img/promo2.webp" data-fancybox="">
+          <img src="img/promo2.webp" alt="изображение" width="100%" class="app__img">
+        </a>
+        
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Почему ручное оформление ИД съедает деньги</h2>
+      <div class="pain-grid">
+        <div class="pain-card"><span class="icon"><img src="img/pain-1.png" alt="изображение" width="100%"></span>
+          <p>Одни и те же данные вбиваются много раз</p>
+        </div>
+        <div class="pain-card"><span class="icon"><img src="img/pain-2.png" alt="изображение" width="100%"></span>
+          <p>Журналы и акты расходятся</p>
+        </div>
+        <div class="pain-card"><span class="icon"><img src="img/pain-3.png" alt="изображение" width="100%"></span>
+          <p>Паспорта и АВК теряются</p>
+        </div>
+        <div class="pain-card"><span class="icon"><img src="img/pain-4.png" alt="изображение" width="100%"></span>
+          <p>Слишком много ручной рутины</p>
+        </div>
+        <div class="pain-card"><span class="icon"><img src="img/pain-5.png" alt="изображение" width="100%"></span>
+          <p>Замечания появляются в конце</p>
+        </div>
+        <div class="pain-card"><span class="icon"><img src="img/pain-6.png" alt="изображение" width="100%"></span>
+          <p>ПТО тратит время не туда</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" style="padding-top:10px">
+    <div class="container">
+      <h2 class="section-title">SID собирает исполнительную документацию в единую систему</h2>
+      <div class="flow">
+        <div class="module"><span class="icon"><img src="img/i-1.png" alt="изображение" width="100%"
+              class="module-icon"></span>РД</div>
+        <div class="arrow"></div>
+        <div class="module"><span class="icon"><img src="img/i-2.png" alt="изображение" width="100%"
+              class="module-icon"></span>Акты</div>
+        <div class="arrow"></div>
+        <div class="module"><span class="icon"><img src="img/i-3.png" alt="изображение" width="100%"
+              class="module-icon"></span>Журналы</div>
+        <div class="arrow"></div>
+        <div class="module"><span class="icon"><img src="img/i-4.png" alt="изображение" width="100%"
+              class="module-icon"></span>Паспорта</div>
+        <div class="arrow"></div>
+        <div class="module"><span class="icon"><img src="img/i-5.png" alt="изображение" width="100%"
+              class="module-icon"></span>Материалы</div>
+        <div class="arrow"></div>
+        <div class="module"><span class="icon"><img src="img/i-6.png" alt="изображение" width="100%"
+              class="module-icon"></span>Подписанты</div>
+        <div class="arrow"></div>
+        <div class="module"><span class="icon"><img src="img/i-7.png" alt="изображение" width="100%"
+              class="module-icon"></span>Архив</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="container">
+      <h2 class="section-title">Что умеет SID</h2>
+      <div class="features">
+        <div class="feature-card"><span class="icon">
+            <img src="img/win-1.png" alt="изображение" width="100%">
+          </span>
+          <div>
+            <div class="num">01</div>
+            <h3>Акты</h3>
+            <p class="muted">Формирование АОСР, АВК и других актов.</p>
+          </div>
+        </div>
+        <div class="feature-card"><span class="icon"><img src="img/win-2.png" alt="изображение" width="100%"></span>
+          <div>
+            <div class="num">02</div>
+            <h3>Журналы</h3>
+            <p class="muted">Автоматическое заполнение журналов.</p>
+          </div>
+        </div>
+        <div class="feature-card"><span class="icon"><img src="img/win-3.png" alt="изображение" width="100%"></span>
+          <div>
+            <div class="num">03</div>
+            <h3>Паспорта и материалы</h3>
+            <p class="muted">Привязка документов к видам работ.</p>
+          </div>
+        </div>
+        <div class="feature-card"><span class="icon"><img src="img/win-4.png" alt="изображение" width="100%"></span>
+          <div>
+            <div class="num">04</div>
+            <h3>Рабочая документация</h3>
+            <p class="muted">Учёт листов, шифров и изменений.</p>
+          </div>
+        </div>
+        <div class="feature-card"><span class="icon"><img src="img/win-5.png" alt="изображение" width="100%"></span>
+          <div>
+            <div class="num">05</div>
+            <h3>Шаблоны</h3>
+            <p class="muted">Единый корпоративный стандарт оформления.</p>
+          </div>
+        </div>
+        <div class="feature-card"><span class="icon"><img src="img/win-6.png" alt="изображение" width="100%"></span>
+          <div>
+            <div class="num">06</div>
+            <h3>Архив</h3>
+            <p class="muted">Сбор готового комплекта ИД.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:10px">
+    <div class="container">
+      <h2 class="section-title">Кому подойдёт SID</h2>
+      <div class="audience">
+        <div class="aud-card"><span class="icon"><img src="img/aud-1.jpg" alt="" width="100%" class="aud-icon"></span>
+          <div>
+            <h3>Генподрядчику</h3>
+            <p>Прозрачность, контроль и единые стандарты на всех объектах.</p>
+          </div>
+        </div>
+        <div class="aud-card"><span class="icon"><img src="img/aud-2.jpg" alt="" width="100%" class="aud-icon"></span>
+          <div>
+            <h3>Субподрядчику</h3>
+            <p>Быстрое оформление ИД и меньше замечаний от заказчика.</p>
+          </div>
+        </div>
+        <div class="aud-card"><span class="icon"><img src="img/aud-3.jpg" alt="" width="100%" class="aud-icon"></span>
+          <div>
+            <h3>Инженеру ПТО</h3>
+            <p>Меньше рутины, больше времени на решение задач.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section id="calc" class="calc">
+    <div class="container">
+      <h2 class="section-title">Калькулятор экономии от внедрения SID</h2>
+      <div class="calc-box">
+        <div>
+          <div class="field"><label>ФОТ специалиста</label>
+            <div class="fake-input">120 000 <span>₽ / мес.</span></div>
+          </div>
+          <div class="field"><label>Количество специалистов</label>
+            <div class="fake-input">2 <span>чел.</span></div>
+          </div>
+          <div class="field"><label>Объём работ</label>
+            <div class="fake-input">Средний <span>⌄</span></div>
+          </div>
+          <div class="field"><label>Период</label>
+            <div class="fake-input">12 месяцев <span>⌄</span></div>
+          </div>
+        </div>
+        <div class="results">
+          <div class="result"><span>Текущие затраты</span><b>2 880 000 ₽</b><small>в год</small></div>
+          <div class="result hot"><span class="gold">Потенциальная экономия</span><b class="gold">1 152 000
+              ₽</b><small>40% экономии</small></div>
+          <div class="result"><span>Срок окупаемости</span><b class="gold">2,4</b><small>месяца</small></div>
+        </div>
+      </div>
+      <p class="muted" style="text-align:center;margin-top:18px">Расчёт ориентировочный. Точная экономия зависит от
+        процессов вашей компании.</p>
+    </div>
+  </section> -->
+
+  <section id="video">
+    <div class="container">
+      <h2 class="section-title">Посмотрите, как работает SID</h2>
+      <div class="videos">
+        <div class="video-card">
+          <div class="thumb"
+            data-video="https://rutube.ru/play/embed/17991112a9b93423bab8875ae870ad67/?p=kkUbvfwxBbRn7gDSS-1l-Q">
+            <a href="#" class="play">▶</a>
+
+          </div>
+          Видео-презентация<br><span class="muted">20:04
+        </div>
+
+        <div class="video-card">
+          <div class="thumb"
+            data-video="https://rutube.ru/play/embed/5a0361333704c4fda8b505d6976a3a41/?p=mVqb24DegmwRX92AMlwf4g">
+            <a href="#" class="play">▶</a>
+
+          </div>
+          Обзор базы<br><span class="muted">16:43</span>
+        </div>
+        <div class="video-card">
+          <div class="thumb"
+            data-video="https://rutube.ru/play/embed/3ebbdd298ee0470094c6f3f2392c7f56/?p=1u32hJYZzPCIpExSJ-sntA">
+            <a href="#" class="play">▶</a>
+
+          </div>
+          Паспорт<br><span class="muted">22:36</span>
+        </div>
+        <div class="video-card">
+          <div class="thumb"
+            data-video="https://rutube.ru/play/embed/35ac311807bbdc082488dd9466fdc672/?p=1dDkRqP9gGE1ikcMfo7jPw">
+            <a href="#" class="play">▶</a>
+
+          </div>
+          Даты + ОЖР<br><span class="muted">15:04</span>
+        </div>
+        <div class="video-card">
+          <div class="thumb"
+            data-video="https://rutube.ru/play/embed/ae6b14453cb3f4be68ef4f7ecb8ed69d/?p=haUZkj-fuWi5-YTPbgDgAQ">
+            <a href="#" class="play">▶</a>
+          
+          </div>
+          Подписанты<br><span class="muted">13:33</span>
+        </div>
+        <div class="video-card">
+          <div class="thumb"
+            data-video="https://rutube.ru/play/embed/89a7b3537f8dff68833149ec515d885d/?p=_eGnBZUFSJOcqulGftxYnQ">
+            <a href="#" class="play">▶</a>
+          
+          
+          </div>
+          Инструкция<br><span class="muted">04:20</span>
+        </div>
+        <div class="video-card">
+          <div class="thumb"
+            data-video="https://rutube.ru/play/embed/cbf7594e88286319e2d428c2f7c40d25/?p=1hydwjV3EIFJ65oZNPUrgg">
+            <a href="#" class="play">▶</a>
+          
+          
+          </div>
+          Шаблон<br><span class="muted">20:03</span>
+        </div>
+        <div class="video-card">
+          <div class="thumb"
+            data-video="https://rutube.ru/play/embed/20846143dbbb0e614b8a9c1849a439da/?p=VTI9kZ1BTgt34Mxo1I7uIw">
+            <a href="#" class="play">▶</a>
+          
+          
+          </div>
+          РД<br><span class="muted">04:01</span>
+        </div>
+      </div>
+
+      <!-- Попап (общий для всех видео) -->
+      <div id="videoOverlay"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; justify-content: center; align-items: center;">
+
+        <div
+          style="position: relative; width: 80%; max-width: 800px; background: #000; border-radius: 8px; overflow: hidden;">
+
+          <button id="closePopup"
+            style="position: absolute; top: 10px; right: 15px; background: none; border: none; color: #fff; font-size: 30px; cursor: pointer; z-index: 10;">&times;</button>
+
+          <div style="padding: 56.25% 0 0 0; position: relative;">
+            <iframe id="videoIframe" src=""
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+              allow="clipboard-write; autoplay" allowFullScreen></iframe>
+          </div>
+
+        </div>
+      </div>
+      <p style="text-align:center;margin-top:28px"><a style="color:var(--gold2);font-weight:900" href="https://rutube.ru/channel/48291030/" target="_blank">Смотреть все
+          видео →</a></p>
+    </div>
+  </section>
+
+  <section id="demo" class="cta">
+    <div class="container cta-grid">
+      <div class="desk-art">
+        <div class="contact-chips">
+          <a href="tel:+79965827964" class="contact-chip">Телефон<br><b>+7(996)-582-79-64</b></a>
+          <a href="tg://resolve?domain=ooo_sid" class="contact-chip">Telegram<br><b>@ooo_sid</b></a>
+          <a href="mailto:info@ooo-sid.ru" class="contact-chip">E-mail<br><b>info@ooo-sid.ru</b></a>
+        </div>
+      </div>
+      <form action="#" class="modal__form">
+        <div class="form" id="contacts">
+        <h2>Получите бесплатную демо-версию <span>SID</span></h2>
+        <p>Оставьте контакты — мы покажем, как программа работает и как её можно адаптировать под ваш процесс оформления
+          исполнительной документации.</p>
+        <input class="input" placeholder="Введите ваше имя" name="username" id="username">
+        <input class="input phone" placeholder="+7 (___) ___-__-__" name="email" id="email" required>
+        <input class="input" placeholder="name@company.ru" name="usermail" id="usermail" required>
+        <input class="input" placeholder="Название вашей организации" name="inn" id="inn">
+          
+        <button class="btn primary" style="width:100%;justify-content:center;margin-top:8px" type="submit">Получить демо SID
+          →</button>
+        
+      </div>
+      </form>
+      
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <div>
+        <div class="logo">SID</div>
+        <p>Программное обеспечение для автоматизации оформления исполнительной документации.</p>
+      </div>
+      <div><b>Меню</b>
+        <p>Возможности<br>Как работает<br>Экономия</p>
+      </div>
+      <div><b>Разделы</b>
+        <p>Обучение<br>Демо<br>Контакты</p>
+      </div>
+      <div><b>Контакты</b>
+        <p>+7 (495) 123-45-67<br>info@sid-soft.ru<br>Пн–Пт с 9:00 до 18:00</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Находим все ссылки с классом 'play' внутри элементов с классом 'thumb'
+const playLinks = document.querySelectorAll('.thumb .play');
+const overlay = document.getElementById('videoOverlay');
+const iframe = document.getElementById('videoIframe');
+const closeBtn = document.getElementById('closePopup');
+
+// Функция для открытия попапа
+function openPopup(videoUrl) {
+    overlay.style.display = 'flex';
+    iframe.src = videoUrl;
+    document.body.style.overflow = 'hidden';
+}
+
+// Функция для закрытия попапа и остановки видео
+function closePopup() {
+    overlay.style.display = 'none';
+    iframe.src = ''; // Полностью останавливаем видео
+    document.body.style.overflow = '';
+}
+
+// Обработчик клика для каждой ссылки
+playLinks.forEach(function(link) {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        
+        // Ищем родительский элемент .thumb
+        const thumb = this.closest('.thumb');
+        if (thumb) {
+            // Берем ссылку из data-атрибута
+            const videoUrl = thumb.getAttribute('data-video');
+            if (videoUrl) {
+                openPopup(videoUrl);
+            } else {
+                console.error('Не найден data-video атрибут у элемента:', thumb);
+            }
+        }
+    });
+});
+
+// Обработчик для кнопки закрытия
+if (closeBtn) {
+    closeBtn.addEventListener('click', closePopup);
+}
+
+// Закрытие попапа при клике на фон
+overlay.addEventListener('click', function(event) {
+    if (event.target === this) {
+        closePopup();
+    }
+});
+
+// Закрытие по клавише ESC
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && overlay.style.display === 'flex') {
+        closePopup();
+    }
+});
+  </script>
+  <script src='js/jquery-3.6.4.min.js'></script>
+    <script src="js/imask.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
